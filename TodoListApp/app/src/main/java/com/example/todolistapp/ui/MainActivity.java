@@ -9,6 +9,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.todolistapp.R;
+import com.example.todolistapp.data.entities.Todo;
+import com.example.todolistapp.data.repositories.TodoRepository;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,5 +24,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        new Thread(() -> {
+            TodoRepository repository = new TodoRepository(this);
+            repository.insertTodoData(new Todo("TEST TODO"));
+        }).start();
     }
 }
