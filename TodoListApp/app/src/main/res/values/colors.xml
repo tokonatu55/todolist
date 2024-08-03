@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="Egg_blue_Light_Shade">#63B5E2</color>
+    <color name="astronaut_Blue">#3D92C7</color>
+    <color name="Egg_Blue_Dark_Shade">#1F74AE</color>
+
 </resources>
