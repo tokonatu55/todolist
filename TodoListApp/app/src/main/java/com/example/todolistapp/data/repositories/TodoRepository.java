@@ -8,6 +8,8 @@ import com.example.todolistapp.data.dao.TodoDao;
 import com.example.todolistapp.data.database.TodoDatabase;
 import com.example.todolistapp.data.entities.Todo;
 
+import java.util.List;
+
 public class TodoRepository {
 
     private TodoDatabase db;
@@ -24,4 +26,10 @@ public class TodoRepository {
     public void insertTodoData(Todo todo) {
         todoDao.insert(todo);
     }
+
+    public  List<Todo> getAllTodoData() {
+        return todoDao.getAllTodo();
+    }
+
+
 }

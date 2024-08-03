@@ -1,9 +1,11 @@
 package com.example.todolistapp.ui;
 
 import android.os.Bundle;
+import android.widget.FrameLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -11,8 +13,11 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.todolistapp.R;
 import com.example.todolistapp.data.entities.Todo;
 import com.example.todolistapp.data.repositories.TodoRepository;
+import com.example.todolistapp.ui.todolist.TodoListFragment;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +30,16 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        new Thread(() -> {
+        toolbar = findViewById(R.id.toolbar);
+        TodoListFragment  fragment = TodoListFragment.newInstance();
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.main_container, fragment)
+                .commitNow();
+
+        /*new Thread(() -> {
             TodoRepository repository = new TodoRepository(this);
             repository.insertTodoData(new Todo("TEST TODO"));
-        }).start();
+        }).start();*/
     }
 }
